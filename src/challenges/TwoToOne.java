@@ -62,6 +62,7 @@ public class TwoToOne {
     	char[] array = st.toCharArray();
     	Arrays.sort(array);
     	System.out.println(array);
+    	st = Arrays.toString(array);
     	return st;
     }
 }
