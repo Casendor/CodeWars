@@ -1,10 +1,7 @@
 package challenges;
 // prueba desde Mac
 
-import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.List;
-import java.util.Comparator;
 
 public class TwoToOne {
 
@@ -14,7 +11,7 @@ public class TwoToOne {
 		String resultado = longest2(s1, s2);
 		String longest = "abcdefklmopqwxy";
 		// System.out.println(longest == resultado);
-		// System.out.println("Este es el resultado " + resultado);
+		System.out.println("Este es el resultado " + resultado);
 		assertEquals("aehrsty", TwoToOne.longest2("aretheyhere", "yestheyarehere"));
 	}
 
@@ -50,6 +47,7 @@ public class TwoToOne {
 	// }
 
 	public static String longest2(String s1, String s2) {
+		// Create a stringBuilder object to concatenate both strings
 		StringBuilder sb = new StringBuilder();
 		for (int i = 0; i < s1.length(); i++) {
 			sb.append(s1.charAt(i));
@@ -57,31 +55,23 @@ public class TwoToOne {
 		for (int i = 0; i < s2.length(); i++) {
 			sb.append(s2.charAt(i));
 		}
-
-		// System.out.println(sb.length());
-		// System.out.println(sb.charAt(0));
-		// sb.deleteCharAt(0);
-		// System.out.println(sb.charAt(sb.length()-1));
-		// System.out.println(sb.length());
-		// System.out.println(sb.length());
-
+		
+		// Iterate over the string with two loops to search and compare 
 		for (int i = 0; i < sb.length(); i++) {
 			for (int h = sb.length() - 1; h > 0; h--) {
-				// System.out.println("En el mas interno i es: " + i + " y j es: " + h);
+				// Delete duplicates
 				if (i != h && sb.charAt(i) == sb.charAt(h)) {
-					// System.out.println("Antes de borrar: " + sb.toString());
 					sb.deleteCharAt(h);
-					// System.out.println("despues de borrar: " + sb.toString());
 				}
 			}
 		}
-		// System.out.println(sb.toString());
+		// Convert sb to string
 		String st = sb.toString();
+		// Convert the string into an array in order to sort it
 		char[] array = st.toCharArray();
 		Arrays.sort(array);
-		System.out.println(array);
+		// Convert the sorted array into a string in order to return it
 		st = Arrays.toString(array);
-		// System.out.println(st);
 		return new String(array);
 	}
 
