@@ -1,4 +1,4 @@
-package challenges;
+package twoToOne;
 // prueba desde Mac
 
 import java.util.Arrays;
